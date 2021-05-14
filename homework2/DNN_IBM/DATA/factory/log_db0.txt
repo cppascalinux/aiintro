@@ -1,0 +1,1436 @@
+train_list=config\list600_short.txt, test_list=config\list120_short.txt, noise_cut=0.500000
+
+dB:      0
+feat_type:Gf, noise_type:factory
+
+
+
+##########################################
+Start to generate training/test mixtures 
+
+
+
+noise cut ratio=0.500000
+using factory noise
+
+Mix Test Set, noise_name = factory ######
+
+name=S_61_01.wav before_snr=0.420395, using db=0, after_snr=-0.000000, index_sentence=1
+name=S_61_02.wav before_snr=0.108336, using db=0, after_snr=-0.000000, index_sentence=2
+name=S_61_03.wav before_snr=0.320692, using db=0, after_snr=0.000000, index_sentence=3
+name=S_61_04.wav before_snr=-0.234776, using db=0, after_snr=0.000000, index_sentence=4
+name=S_61_05.wav before_snr=0.503511, using db=0, after_snr=-0.000000, index_sentence=5
+name=S_61_06.wav before_snr=-0.189246, using db=0, after_snr=-0.000000, index_sentence=6
+name=S_61_07.wav before_snr=2.604323, using db=0, after_snr=0.000000, index_sentence=7
+name=S_61_08.wav before_snr=3.697774, using db=0, after_snr=-0.000000, index_sentence=8
+name=S_61_09.wav before_snr=0.342899, using db=0, after_snr=-0.000000, index_sentence=9
+name=S_61_10.wav before_snr=0.576752, using db=0, after_snr=0.000000, index_sentence=10
+The factory noise have been finished.
+noise cut ratio=0.500000
+using factory noise
+
+Mix Training Set, noise_name = factory repeat_time = 1 ######
+name=S_01_01.wav before_snr=0.655683, using db=0, after_snr=-0.000000, index_sentence=1 var_ind=1 store_ind=1
+name=S_01_02.wav before_snr=0.316027, using db=0, after_snr=-0.000000, index_sentence=2 var_ind=1 store_ind=2
+name=S_01_03.wav before_snr=1.458332, using db=0, after_snr=0.000000, index_sentence=3 var_ind=1 store_ind=3
+name=S_01_04.wav before_snr=5.072631, using db=0, after_snr=-0.000000, index_sentence=4 var_ind=1 store_ind=4
+name=S_01_05.wav before_snr=0.410065, using db=0, after_snr=0.000000, index_sentence=5 var_ind=1 store_ind=5
+name=S_01_06.wav before_snr=0.748507, using db=0, after_snr=0.000000, index_sentence=6 var_ind=1 store_ind=6
+name=S_01_07.wav before_snr=2.078541, using db=0, after_snr=-0.000000, index_sentence=7 var_ind=1 store_ind=7
+name=S_01_08.wav before_snr=0.861494, using db=0, after_snr=-0.000000, index_sentence=8 var_ind=1 store_ind=8
+name=S_01_09.wav before_snr=0.308897, using db=0, after_snr=-0.000000, index_sentence=9 var_ind=1 store_ind=9
+name=S_01_10.wav before_snr=0.562961, using db=0, after_snr=0.000000, index_sentence=10 var_ind=1 store_ind=10
+The factory noise have been finished.
+
+
+
+##########################################
+Start to generate features and ideal masks 
+
+
+
+start noise:factory  feat:Gf
+	Gf	factory
+SPEECH_DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix'
+test data =D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\test_factory_mix_aft2.mat
+part:-1 feat:1 - 10, feat_set_size=10 store=1 NUMBER_CHANNEL=64 is_ratio_mask=0.
+####### extracting features ######
+DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\test_factory_mix_aft2.mat'
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+creating double frame index DFI...
+stop_pointer=2581
+data_frames=2581 num. of test sentence=10
+finish saving Gf
+factory have been finished.
+finish noise:factory  feat:Gf
+7.475750 seconds spent on the noise:factory feat:Gf
+start noise:factory  feat:Gf
+	Gf	factory
+SPEECH_DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix'
+training data=D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\train_factory_mix_bef2.mat
+part:1 feat:1 - 10, feat_set_size=10 store=1 NUMBER_CHANNEL=64 is_ratio_mask=0.
+####### extracting features ######
+DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\train_factory_mix_bef2.mat'
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+finish saving Gf
+factory have been finished.
+finish noise:factory  feat:Gf
+7.019213 seconds spent on the noise:factory feat:Gf
+
+
+
+##########################################
+Start mean variance normalization and dnn training/test 
+
+
+
+MVNing Feat=Gf Noise=factory
+root_path =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\'
+train_path =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\feat\train_factory_Gf.mat'
+loading D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\feat\train_factory_Gf.mat
+Total=2959, cv=295  train=2664
+cv=295 x 128, test=2581 x 128
+MVN_DATA_PATH =
+    'MVN_STORE\allmvntrain_factory_Gf_0.mat'
+done with GPU detection.
+Feat=Gf Noise=factory is_ratio_mask=0
+MVN_DATA_PATH =
+    'MVN_STORE\allmvntrain_factory_Gf_0.mat'
+Elapsed time is 0.076926 seconds.
+opts = 
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+              cv_interval: 1
+               isPretrain: 0
+            rbm_max_epoch: 25
+           rbm_batch_size: 1024
+    rbm_learn_rate_binary: 0.0100
+      rbm_learn_rate_real: 0.0040
+                  learner: 'ada_sgd'
+            sgd_max_epoch: 20
+           sgd_batch_size: 1024
+            ada_sgd_scale: 0.0015
+           sgd_learn_rate: [1×20 double]
+         initial_momentum: 0.5000
+           final_momentum: 0.9000
+    change_momentum_point: 5
+            cost_function: 'mse'
+               hid_struct: [1024 1024 1024 1024]
+         unit_type_output: 'sigm'
+         unit_type_hidden: 'relu'
+                isDropout: 0
+           isDropoutInput: 0
+               drop_ratio: 0.2000
+          train_neighbour: 2
+                    isGPU: 1
+              eval_on_gpu: 0
+              save_on_fly: 0
+                       db: 0
+          save_model_path: 'YOUR_FOLDER_OF_MODELS'
+                 note_str: 'YOUR_NOTES'
+               net_struct: [640 1024 1024 1024 1024 64]
+1 is_wiener_mask=0
+use random weight initialization.
+
+Num of Training Samples:2664
+         640        1024        1024        1024        1024          64
+        2664         640
+Objective cost at epoch 1: 13.35 
+binary mask
+Elapsed time is 1.665525 seconds.
+Objective cost at epoch 2: 9.53 
+binary mask
+Elapsed time is 0.096901 seconds.
+Objective cost at epoch 3: 7.61 
+binary mask
+Elapsed time is 0.107701 seconds.
+Objective cost at epoch 4: 6.58 
+binary mask
+Elapsed time is 0.098498 seconds.
+Objective cost at epoch 5: 6.13 
+binary mask
+Elapsed time is 0.109611 seconds.
+Objective cost at epoch 6: 5.87 
+binary mask
+Elapsed time is 0.109439 seconds.
+Objective cost at epoch 7: 5.72 
+binary mask
+Elapsed time is 0.104060 seconds.
+Objective cost at epoch 8: 5.52 
+binary mask
+Elapsed time is 0.108849 seconds.
+Objective cost at epoch 9: 4.97 
+binary mask
+Elapsed time is 0.103845 seconds.
+Objective cost at epoch 10: 4.69 
+binary mask
+Elapsed time is 0.103134 seconds.
+Objective cost at epoch 11: 4.29 
+binary mask
+Elapsed time is 0.100310 seconds.
+Objective cost at epoch 12: 3.91 
+binary mask
+Elapsed time is 0.099618 seconds.
+Objective cost at epoch 13: 3.54 
+binary mask
+Elapsed time is 0.100412 seconds.
+Objective cost at epoch 14: 3.29 
+binary mask
+Elapsed time is 0.101844 seconds.
+Objective cost at epoch 15: 3.01 
+binary mask
+Elapsed time is 0.097308 seconds.
+Objective cost at epoch 16: 2.93 
+binary mask
+Elapsed time is 0.100256 seconds.
+Objective cost at epoch 17: 2.76 
+binary mask
+Elapsed time is 0.103476 seconds.
+Objective cost at epoch 18: 2.61 
+binary mask
+Elapsed time is 0.101791 seconds.
+Objective cost at epoch 19: 2.43 
+binary mask
+Elapsed time is 0.102623 seconds.
+Objective cost at epoch 20: 2.29 
+binary mask
+Elapsed time is 0.103804 seconds.
+IBM
+save_IBM_func
+num_test_sents =
+    10
+#STOI_single# factory Gf      index=1 unprocessed_stoi=0.6270 ideal_stoi=0.8051 est_stoi=0.7058 
+#STOI_single# factory Gf      index=2 unprocessed_stoi=0.6763 ideal_stoi=0.8777 est_stoi=0.6772 
+#STOI_single# factory Gf      index=3 unprocessed_stoi=0.7110 ideal_stoi=0.8786 est_stoi=0.7670 
+#STOI_single# factory Gf      index=4 unprocessed_stoi=0.6678 ideal_stoi=0.8787 est_stoi=0.7372 
+#STOI_single# factory Gf      index=5 unprocessed_stoi=0.5988 ideal_stoi=0.8287 est_stoi=0.6377 
+#STOI_single# factory Gf      index=6 unprocessed_stoi=0.7152 ideal_stoi=0.8877 est_stoi=0.7615 
+#STOI_single# factory Gf      index=7 unprocessed_stoi=0.6993 ideal_stoi=0.8234 est_stoi=0.7170 
+#STOI_single# factory Gf      index=8 unprocessed_stoi=0.6861 ideal_stoi=0.8600 est_stoi=0.7748 
+#STOI_single# factory Gf      index=9 unprocessed_stoi=0.6312 ideal_stoi=0.8585 est_stoi=0.6961 
+#STOI_single# factory Gf      index=10 unprocessed_stoi=0.6550 ideal_stoi=0.8320 est_stoi=0.7288 
+
+#STOI_average# factory Gf      unprocessed_stoi=0.6668 ideal_stoi=0.8530 est_stoi=0.7203 
+
+#@# factory Gf      ACC:0.8697  HIT:0.7201  FA:0.0893  HIT-FA:0.6308
+writing waves ......
+finish waves
+
+test_set: Best model (selected by validation set) at epoch 12 with perf 0.6308
+
+Training done. Elapsed time: 18.32 sec
+RUN
+train_list=config\list600_short.txt, test_list=config\list120_short.txt, noise_cut=0.500000
+
+dB:      0
+feat_type:Gf, noise_type:factory
+
+
+
+##########################################
+Start to generate training/test mixtures 
+
+
+
+noise cut ratio=0.500000
+using factory noise
+
+Mix Test Set, noise_name = factory ######
+
+name=S_61_01.wav before_snr=0.658673, using db=0, after_snr=0.000000, index_sentence=1
+name=S_61_02.wav before_snr=2.802965, using db=0, after_snr=0.000000, index_sentence=2
+name=S_61_03.wav before_snr=0.528741, using db=0, after_snr=-0.000000, index_sentence=3
+name=S_61_04.wav before_snr=3.723640, using db=0, after_snr=0.000000, index_sentence=4
+name=S_61_05.wav before_snr=0.107009, using db=0, after_snr=-0.000000, index_sentence=5
+name=S_61_06.wav before_snr=4.482361, using db=0, after_snr=0.000000, index_sentence=6
+name=S_61_07.wav before_snr=2.502325, using db=0, after_snr=-0.000000, index_sentence=7
+name=S_61_08.wav before_snr=3.942483, using db=0, after_snr=0.000000, index_sentence=8
+name=S_61_09.wav before_snr=0.569606, using db=0, after_snr=0.000000, index_sentence=9
+name=S_61_10.wav before_snr=0.547594, using db=0, after_snr=-0.000000, index_sentence=10
+The factory noise have been finished.
+noise cut ratio=0.500000
+using factory noise
+
+Mix Training Set, noise_name = factory repeat_time = 1 ######
+name=S_01_01.wav before_snr=0.650409, using db=0, after_snr=-0.000000, index_sentence=1 var_ind=1 store_ind=1
+name=S_01_02.wav before_snr=-0.080239, using db=0, after_snr=0.000000, index_sentence=2 var_ind=1 store_ind=2
+name=S_01_03.wav before_snr=5.316692, using db=0, after_snr=-0.000000, index_sentence=3 var_ind=1 store_ind=3
+name=S_01_04.wav before_snr=0.986634, using db=0, after_snr=-0.000000, index_sentence=4 var_ind=1 store_ind=4
+name=S_01_05.wav before_snr=0.874222, using db=0, after_snr=-0.000000, index_sentence=5 var_ind=1 store_ind=5
+name=S_01_06.wav before_snr=3.925802, using db=0, after_snr=0.000000, index_sentence=6 var_ind=1 store_ind=6
+name=S_01_07.wav before_snr=2.146047, using db=0, after_snr=0.000000, index_sentence=7 var_ind=1 store_ind=7
+name=S_01_08.wav before_snr=5.076521, using db=0, after_snr=-0.000000, index_sentence=8 var_ind=1 store_ind=8
+name=S_01_09.wav before_snr=0.483255, using db=0, after_snr=0.000000, index_sentence=9 var_ind=1 store_ind=9
+name=S_01_10.wav before_snr=0.382204, using db=0, after_snr=-0.000000, index_sentence=10 var_ind=1 store_ind=10
+The factory noise have been finished.
+
+
+
+##########################################
+Start to generate features and ideal masks 
+
+
+
+start noise:factory  feat:Gf
+	Gf	factory
+SPEECH_DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix'
+test data =D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\test_factory_mix_aft2.mat
+part:-1 feat:1 - 10, feat_set_size=10 store=1 NUMBER_CHANNEL=64 is_ratio_mask=0.
+####### extracting features ######
+DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\test_factory_mix_aft2.mat'
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+creating double frame index DFI...
+stop_pointer=2581
+data_frames=2581 num. of test sentence=10
+finish saving Gf
+factory have been finished.
+finish noise:factory  feat:Gf
+5.965565 seconds spent on the noise:factory feat:Gf
+start noise:factory  feat:Gf
+	Gf	factory
+SPEECH_DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix'
+training data=D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\train_factory_mix_bef2.mat
+part:1 feat:1 - 10, feat_set_size=10 store=1 NUMBER_CHANNEL=64 is_ratio_mask=0.
+####### extracting features ######
+DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\train_factory_mix_bef2.mat'
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+finish saving Gf
+factory have been finished.
+finish noise:factory  feat:Gf
+7.396821 seconds spent on the noise:factory feat:Gf
+
+
+
+##########################################
+Start mean variance normalization and dnn training/test 
+
+
+
+MVNing Feat=Gf Noise=factory
+root_path =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\'
+train_path =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\feat\train_factory_Gf.mat'
+loading D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\feat\train_factory_Gf.mat
+Total=2959, cv=295  train=2664
+cv=295 x 128, test=2581 x 128
+MVN_DATA_PATH =
+    'MVN_STORE\allmvntrain_factory_Gf_0.mat'
+done with GPU detection.
+Feat=Gf Noise=factory is_ratio_mask=0
+MVN_DATA_PATH =
+    'MVN_STORE\allmvntrain_factory_Gf_0.mat'
+Elapsed time is 0.050617 seconds.
+opts = 
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+              cv_interval: 1
+               isPretrain: 0
+            rbm_max_epoch: 25
+           rbm_batch_size: 1024
+    rbm_learn_rate_binary: 0.0100
+      rbm_learn_rate_real: 0.0040
+                  learner: 'ada_sgd'
+            sgd_max_epoch: 20
+           sgd_batch_size: 1024
+            ada_sgd_scale: 0.0015
+           sgd_learn_rate: [1×20 double]
+         initial_momentum: 0.5000
+           final_momentum: 0.9000
+    change_momentum_point: 5
+            cost_function: 'mse'
+               hid_struct: [1024 1024 1024 1024]
+         unit_type_output: 'sigm'
+         unit_type_hidden: 'sigm'
+                isDropout: 0
+           isDropoutInput: 0
+               drop_ratio: 0.2000
+          train_neighbour: 2
+                    isGPU: 1
+              eval_on_gpu: 0
+              save_on_fly: 0
+                       db: 0
+          save_model_path: 'YOUR_FOLDER_OF_MODELS'
+                 note_str: 'YOUR_NOTES'
+               net_struct: [640 1024 1024 1024 1024 64]
+1 is_wiener_mask=0
+use random weight initialization.
+
+Num of Training Samples:2664
+         640        1024        1024        1024        1024          64
+        2664         640
+Objective cost at epoch 1: 14.19 
+binary mask
+Elapsed time is 0.792168 seconds.
+Objective cost at epoch 2: 10.87 
+binary mask
+Elapsed time is 0.081832 seconds.
+Objective cost at epoch 3: 10.73 
+binary mask
+Elapsed time is 0.091972 seconds.
+Objective cost at epoch 4: 10.54 
+binary mask
+Elapsed time is 0.092584 seconds.
+Objective cost at epoch 5: 10.32 
+binary mask
+Elapsed time is 0.098475 seconds.
+Objective cost at epoch 6: 9.56 
+binary mask
+Elapsed time is 0.092251 seconds.
+Objective cost at epoch 7: 8.39 
+binary mask
+Elapsed time is 0.092484 seconds.
+Objective cost at epoch 8: 7.62 
+binary mask
+Elapsed time is 0.091256 seconds.
+Objective cost at epoch 9: 7.61 
+binary mask
+Elapsed time is 0.094357 seconds.
+Objective cost at epoch 10: 7.49 
+binary mask
+Elapsed time is 0.091574 seconds.
+Objective cost at epoch 11: 7.31 
+binary mask
+Elapsed time is 0.091377 seconds.
+Objective cost at epoch 12: 6.98 
+binary mask
+Elapsed time is 0.089451 seconds.
+Objective cost at epoch 13: 6.71 
+binary mask
+Elapsed time is 0.089008 seconds.
+Objective cost at epoch 14: 6.67 
+binary mask
+Elapsed time is 0.091802 seconds.
+Objective cost at epoch 15: 6.54 
+binary mask
+Elapsed time is 0.091674 seconds.
+Objective cost at epoch 16: 6.68 
+binary mask
+Elapsed time is 0.091224 seconds.
+Objective cost at epoch 17: 6.46 
+binary mask
+Elapsed time is 0.093437 seconds.
+Objective cost at epoch 18: 6.33 
+binary mask
+Elapsed time is 0.091765 seconds.
+Objective cost at epoch 19: 6.38 
+binary mask
+Elapsed time is 0.091235 seconds.
+Objective cost at epoch 20: 6.19 
+binary mask
+Elapsed time is 0.092258 seconds.
+IBM
+save_IBM_func
+num_test_sents =
+    10
+#STOI_single# factory Gf      index=1 unprocessed_stoi=0.6572 ideal_stoi=0.8105 est_stoi=0.7089 
+#STOI_single# factory Gf      index=2 unprocessed_stoi=0.7104 ideal_stoi=0.8808 est_stoi=0.7449 
+#STOI_single# factory Gf      index=3 unprocessed_stoi=0.6965 ideal_stoi=0.8735 est_stoi=0.7566 
+#STOI_single# factory Gf      index=4 unprocessed_stoi=0.6928 ideal_stoi=0.8848 est_stoi=0.7594 
+#STOI_single# factory Gf      index=5 unprocessed_stoi=0.6220 ideal_stoi=0.8341 est_stoi=0.6742 
+#STOI_single# factory Gf      index=6 unprocessed_stoi=0.7580 ideal_stoi=0.8848 est_stoi=0.8086 
+#STOI_single# factory Gf      index=7 unprocessed_stoi=0.6432 ideal_stoi=0.8609 est_stoi=0.7447 
+#STOI_single# factory Gf      index=8 unprocessed_stoi=0.6923 ideal_stoi=0.8572 est_stoi=0.7538 
+#STOI_single# factory Gf      index=9 unprocessed_stoi=0.6134 ideal_stoi=0.8518 est_stoi=0.6759 
+#STOI_single# factory Gf      index=10 unprocessed_stoi=0.6676 ideal_stoi=0.8058 est_stoi=0.6619 
+
+#STOI_average# factory Gf      unprocessed_stoi=0.6753 ideal_stoi=0.8544 est_stoi=0.7289 
+
+#@# factory Gf      ACC:0.8665  HIT:0.6058  FA:0.0604  HIT-FA:0.5454
+writing waves ......
+finish waves
+
+test_set: Best model (selected by validation set) at epoch 20 with perf 0.5454
+
+Training done. Elapsed time: 14.80 sec
+RUN
+train_list=config\list600_short.txt, test_list=config\list120_short.txt, noise_cut=0.500000
+
+dB:      0
+feat_type:Gf, noise_type:factory
+
+
+
+##########################################
+Start to generate training/test mixtures 
+
+
+
+noise cut ratio=0.500000
+using factory noise
+
+Mix Test Set, noise_name = factory ######
+
+name=S_61_01.wav before_snr=0.658673, using db=0, after_snr=0.000000, index_sentence=1
+name=S_61_02.wav before_snr=2.802965, using db=0, after_snr=0.000000, index_sentence=2
+name=S_61_03.wav before_snr=0.528741, using db=0, after_snr=-0.000000, index_sentence=3
+name=S_61_04.wav before_snr=3.723640, using db=0, after_snr=0.000000, index_sentence=4
+name=S_61_05.wav before_snr=0.107009, using db=0, after_snr=-0.000000, index_sentence=5
+name=S_61_06.wav before_snr=4.482361, using db=0, after_snr=0.000000, index_sentence=6
+name=S_61_07.wav before_snr=2.502325, using db=0, after_snr=-0.000000, index_sentence=7
+name=S_61_08.wav before_snr=3.942483, using db=0, after_snr=0.000000, index_sentence=8
+name=S_61_09.wav before_snr=0.569606, using db=0, after_snr=0.000000, index_sentence=9
+name=S_61_10.wav before_snr=0.547594, using db=0, after_snr=-0.000000, index_sentence=10
+The factory noise have been finished.
+noise cut ratio=0.500000
+using factory noise
+
+Mix Training Set, noise_name = factory repeat_time = 1 ######
+name=S_01_01.wav before_snr=0.650409, using db=0, after_snr=-0.000000, index_sentence=1 var_ind=1 store_ind=1
+name=S_01_02.wav before_snr=-0.080239, using db=0, after_snr=0.000000, index_sentence=2 var_ind=1 store_ind=2
+name=S_01_03.wav before_snr=5.316692, using db=0, after_snr=-0.000000, index_sentence=3 var_ind=1 store_ind=3
+name=S_01_04.wav before_snr=0.986634, using db=0, after_snr=-0.000000, index_sentence=4 var_ind=1 store_ind=4
+name=S_01_05.wav before_snr=0.874222, using db=0, after_snr=-0.000000, index_sentence=5 var_ind=1 store_ind=5
+name=S_01_06.wav before_snr=3.925802, using db=0, after_snr=0.000000, index_sentence=6 var_ind=1 store_ind=6
+name=S_01_07.wav before_snr=2.146047, using db=0, after_snr=0.000000, index_sentence=7 var_ind=1 store_ind=7
+name=S_01_08.wav before_snr=5.076521, using db=0, after_snr=-0.000000, index_sentence=8 var_ind=1 store_ind=8
+name=S_01_09.wav before_snr=0.483255, using db=0, after_snr=0.000000, index_sentence=9 var_ind=1 store_ind=9
+name=S_01_10.wav before_snr=0.382204, using db=0, after_snr=-0.000000, index_sentence=10 var_ind=1 store_ind=10
+The factory noise have been finished.
+
+
+
+##########################################
+Start to generate features and ideal masks 
+
+
+
+start noise:factory  feat:Gf
+	Gf	factory
+SPEECH_DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix'
+test data =D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\test_factory_mix_aft2.mat
+part:-1 feat:1 - 10, feat_set_size=10 store=1 NUMBER_CHANNEL=64 is_ratio_mask=0.
+####### extracting features ######
+DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\test_factory_mix_aft2.mat'
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+creating double frame index DFI...
+stop_pointer=2581
+data_frames=2581 num. of test sentence=10
+finish saving Gf
+factory have been finished.
+finish noise:factory  feat:Gf
+5.908223 seconds spent on the noise:factory feat:Gf
+start noise:factory  feat:Gf
+	Gf	factory
+SPEECH_DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix'
+training data=D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\train_factory_mix_bef2.mat
+part:1 feat:1 - 10, feat_set_size=10 store=1 NUMBER_CHANNEL=64 is_ratio_mask=0.
+####### extracting features ######
+DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\train_factory_mix_bef2.mat'
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+finish saving Gf
+factory have been finished.
+finish noise:factory  feat:Gf
+6.438485 seconds spent on the noise:factory feat:Gf
+
+
+
+##########################################
+Start mean variance normalization and dnn training/test 
+
+
+
+MVNing Feat=Gf Noise=factory
+root_path =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\'
+train_path =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\feat\train_factory_Gf.mat'
+loading D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\feat\train_factory_Gf.mat
+Total=2959, cv=295  train=2664
+cv=295 x 128, test=2581 x 128
+MVN_DATA_PATH =
+    'MVN_STORE\allmvntrain_factory_Gf_0.mat'
+done with GPU detection.
+Feat=Gf Noise=factory is_ratio_mask=0
+MVN_DATA_PATH =
+    'MVN_STORE\allmvntrain_factory_Gf_0.mat'
+Elapsed time is 0.051124 seconds.
+opts = 
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+              cv_interval: 1
+               isPretrain: 0
+            rbm_max_epoch: 25
+           rbm_batch_size: 1024
+    rbm_learn_rate_binary: 0.0100
+      rbm_learn_rate_real: 0.0040
+                  learner: 'ada_sgd'
+            sgd_max_epoch: 100
+           sgd_batch_size: 1024
+            ada_sgd_scale: 0.0015
+           sgd_learn_rate: [1×100 double]
+         initial_momentum: 0.5000
+           final_momentum: 0.9000
+    change_momentum_point: 5
+            cost_function: 'mse'
+               hid_struct: [10000 10000 10000 5000 1024]
+         unit_type_output: 'sigm'
+         unit_type_hidden: 'relu'
+                isDropout: 0
+           isDropoutInput: 0
+               drop_ratio: 0.2000
+          train_neighbour: 2
+                    isGPU: 1
+              eval_on_gpu: 0
+              save_on_fly: 0
+                       db: 0
+          save_model_path: 'YOUR_FOLDER_OF_MODELS'
+                 note_str: 'YOUR_NOTES'
+               net_struct: [640 10000 10000 10000 5000 1024 64]
+1 is_wiener_mask=0
+use random weight initialization.
+
+Num of Training Samples:2664
+         640       10000       10000       10000        5000        1024          64
+        2664         640
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('gpuArray.zeros')" style="font-weight:bold">gpuArray.zeros</a>
+Out of memory on device. To view more detail about available memory on the GPU, use 'gpuDevice()'. If the problem persists, reset
+the GPU by calling 'gpuDevice(1)'.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('zeroInitNet', 'D:\programming\aiintro\homework2\DNN_IBM\dnn\utility\zeroInitNet.m', 9)" style="font-weight:bold">zeroInitNet</a> (<a href="matlab: opentoline('D:\programming\aiintro\homework2\DNN_IBM\dnn\utility\zeroInitNet.m',9,0)">line 9</a>)
+        net(i).W = gpuArray.zeros(net_struct(i+1),net_struct(i),'single');
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('computeNetGradientNoRolling', 'D:\programming\aiintro\homework2\DNN_IBM\dnn\main\computeNetGradientNoRolling.m', 27)" style="font-weight:bold">computeNetGradientNoRolling</a> (<a href="matlab: opentoline('D:\programming\aiintro\homework2\DNN_IBM\dnn\main\computeNetGradientNoRolling.m',27,0)">line 27</a>)
+net_gradients = zeroInitNet(opts.net_struct,opts.isGPU);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('funcDeepNetTrainNoRolling', 'D:\programming\aiintro\homework2\DNN_IBM\dnn\main\funcDeepNetTrainNoRolling.m', 54)" style="font-weight:bold">funcDeepNetTrainNoRolling</a> (<a href="matlab: opentoline('D:\programming\aiintro\homework2\DNN_IBM\dnn\main\funcDeepNetTrainNoRolling.m',54,0)">line 54</a>)
+        [cost,net_grad] = computeNetGradientNoRolling(net_iterative, batch_data, batch_label, opts);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dnn_train', 'D:\programming\aiintro\homework2\DNN_IBM\dnn\main\dnn_train.m', 68)" style="font-weight:bold">dnn_train</a> (<a href="matlab: opentoline('D:\programming\aiintro\homework2\DNN_IBM\dnn\main\dnn_train.m',68,0)">line 68</a>)
+[model, pre_net] = funcDeepNetTrainNoRolling(train_data, train_target, cv_data,cv_label, test_data, test_label, opts);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_every', 'D:\programming\aiintro\homework2\DNN_IBM\dnn\run_every.m', 34)" style="font-weight:bold">run_every</a> (<a href="matlab: opentoline('D:\programming\aiintro\homework2\DNN_IBM\dnn\run_every.m',34,0)">line 34</a>)
+dnn_train
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RUN', 'D:\programming\aiintro\homework2\DNN_IBM\RUN.m', 77)" style="font-weight:bold">RUN</a> (<a href="matlab: opentoline('D:\programming\aiintro\homework2\DNN_IBM\RUN.m',77,0)">line 77</a>)
+    run_every(noise_line, feat_line, mix_db, is_ratio_mask);} 
+gpuDevice()
+ans = 
+  <a href="matlab:helpPopup parallel.gpu.CUDADevice" style="font-weight:bold">CUDADevice</a> with properties:
+
+                      Name: 'GeForce RTX 2080 Super with Max-Q Design'
+                     Index: 1
+         ComputeCapability: '7.5'
+            SupportsDouble: 1
+             DriverVersion: 11.1000
+            ToolkitVersion: 11
+        MaxThreadsPerBlock: 1024
+          MaxShmemPerBlock: 49152
+        MaxThreadBlockSize: [1024 1024 64]
+               MaxGridSize: [2.1475e+09 65535 65535]
+                 SIMDWidth: 32
+               TotalMemory: 8.5899e+09
+           AvailableMemory: 7.1798e+09
+       MultiprocessorCount: 48
+              ClockRateKHz: 1080000
+               ComputeMode: 'Default'
+      GPUOverlapsTransfers: 1
+    KernelExecutionTimeout: 1
+          CanMapHostMemory: 1
+           DeviceSupported: 1
+           DeviceAvailable: 1
+            DeviceSelected: 1
+ 
+ 
+RUN
+{Cannot find an exact (case-sensitive) match for 'RUN'
+
+The closest match is: run in D:\software\Matlab\toolbox\matlab\lang\run.m} 
+run
+{Not enough input arguments.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'D:\software\Matlab\toolbox\matlab\lang\run.m', 28)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('D:\software\Matlab\toolbox\matlab\lang\run.m',28,0)">line 28</a>)
+if isstring(scriptname)} 
+RUN
+train_list=config\list600_short.txt, test_list=config\list120_short.txt, noise_cut=0.500000
+
+dB:      0
+feat_type:Gf, noise_type:factory
+
+
+
+##########################################
+Start to generate training/test mixtures 
+
+
+
+noise cut ratio=0.500000
+using factory noise
+
+Mix Test Set, noise_name = factory ######
+
+name=S_61_01.wav before_snr=0.143055, using db=0, after_snr=-0.000000, index_sentence=1
+name=S_61_02.wav before_snr=0.441971, using db=0, after_snr=-0.000000, index_sentence=2
+name=S_61_03.wav before_snr=3.764132, using db=0, after_snr=0.000000, index_sentence=3
+name=S_61_04.wav before_snr=1.201484, using db=0, after_snr=0.000000, index_sentence=4
+name=S_61_05.wav before_snr=0.361098, using db=0, after_snr=-0.000000, index_sentence=5
+name=S_61_06.wav before_snr=0.869432, using db=0, after_snr=0.000000, index_sentence=6
+name=S_61_07.wav before_snr=5.593502, using db=0, after_snr=-0.000000, index_sentence=7
+name=S_61_08.wav before_snr=0.464351, using db=0, after_snr=-0.000000, index_sentence=8
+name=S_61_09.wav before_snr=3.045012, using db=0, after_snr=-0.000000, index_sentence=9
+name=S_61_10.wav before_snr=0.520473, using db=0, after_snr=0.000000, index_sentence=10
+The factory noise have been finished.
+noise cut ratio=0.500000
+using factory noise
+
+Mix Training Set, noise_name = factory repeat_time = 1 ######
+name=S_01_01.wav before_snr=0.487648, using db=0, after_snr=-0.000000, index_sentence=1 var_ind=1 store_ind=1
+name=S_01_02.wav before_snr=5.115269, using db=0, after_snr=0.000000, index_sentence=2 var_ind=1 store_ind=2
+name=S_01_03.wav before_snr=5.314493, using db=0, after_snr=-0.000000, index_sentence=3 var_ind=1 store_ind=3
+name=S_01_04.wav before_snr=0.542983, using db=0, after_snr=-0.000000, index_sentence=4 var_ind=1 store_ind=4
+name=S_01_05.wav before_snr=2.040349, using db=0, after_snr=0.000000, index_sentence=5 var_ind=1 store_ind=5
+name=S_01_06.wav before_snr=3.433609, using db=0, after_snr=-0.000000, index_sentence=6 var_ind=1 store_ind=6
+name=S_01_07.wav before_snr=0.795730, using db=0, after_snr=0.000000, index_sentence=7 var_ind=1 store_ind=7
+name=S_01_08.wav before_snr=0.858821, using db=0, after_snr=0.000000, index_sentence=8 var_ind=1 store_ind=8
+name=S_01_09.wav before_snr=5.223550, using db=0, after_snr=0.000000, index_sentence=9 var_ind=1 store_ind=9
+name=S_01_10.wav before_snr=4.848589, using db=0, after_snr=0.000000, index_sentence=10 var_ind=1 store_ind=10
+The factory noise have been finished.
+
+
+
+##########################################
+Start to generate features and ideal masks 
+
+
+
+start noise:factory  feat:Gf
+	Gf	factory
+SPEECH_DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix'
+test data =D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\test_factory_mix_aft2.mat
+part:-1 feat:1 - 10, feat_set_size=10 store=1 NUMBER_CHANNEL=64 is_ratio_mask=0.
+####### extracting features ######
+DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\test_factory_mix_aft2.mat'
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+creating double frame index DFI...
+stop_pointer=2581
+data_frames=2581 num. of test sentence=10
+finish saving Gf
+factory have been finished.
+finish noise:factory  feat:Gf
+5.259395 seconds spent on the noise:factory feat:Gf
+start noise:factory  feat:Gf
+	Gf	factory
+SPEECH_DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix'
+training data=D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\train_factory_mix_bef2.mat
+part:1 feat:1 - 10, feat_set_size=10 store=1 NUMBER_CHANNEL=64 is_ratio_mask=0.
+####### extracting features ######
+DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\train_factory_mix_bef2.mat'
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+finish saving Gf
+factory have been finished.
+finish noise:factory  feat:Gf
+5.775585 seconds spent on the noise:factory feat:Gf
+
+
+
+##########################################
+Start mean variance normalization and dnn training/test 
+
+
+
+MVNing Feat=Gf Noise=factory
+root_path =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\'
+train_path =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\feat\train_factory_Gf.mat'
+loading D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\feat\train_factory_Gf.mat
+Total=2959, cv=295  train=2664
+cv=295 x 128, test=2581 x 128
+MVN_DATA_PATH =
+    'MVN_STORE\allmvntrain_factory_Gf_0.mat'
+done with GPU detection.
+Feat=Gf Noise=factory is_ratio_mask=0
+MVN_DATA_PATH =
+    'MVN_STORE\allmvntrain_factory_Gf_0.mat'
+Elapsed time is 0.047440 seconds.
+opts = 
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+              cv_interval: 1
+               isPretrain: 0
+            rbm_max_epoch: 25
+           rbm_batch_size: 1024
+    rbm_learn_rate_binary: 0.0100
+      rbm_learn_rate_real: 0.0040
+                  learner: 'ada_sgd'
+            sgd_max_epoch: 100
+           sgd_batch_size: 1024
+            ada_sgd_scale: 0.0015
+           sgd_learn_rate: [1×100 double]
+         initial_momentum: 0.5000
+           final_momentum: 0.9000
+    change_momentum_point: 5
+            cost_function: 'mse'
+               hid_struct: [2048 2048 2048 1024 512]
+         unit_type_output: 'sigm'
+         unit_type_hidden: 'relu'
+                isDropout: 0
+           isDropoutInput: 0
+               drop_ratio: 0.2000
+          train_neighbour: 2
+                    isGPU: 1
+              eval_on_gpu: 0
+              save_on_fly: 0
+                       db: 0
+          save_model_path: 'YOUR_FOLDER_OF_MODELS'
+                 note_str: 'YOUR_NOTES'
+               net_struct: [640 2048 2048 2048 1024 512 64]
+1 is_wiener_mask=0
+use random weight initialization.
+
+Num of Training Samples:2664
+         640        2048        2048        2048        1024         512          64
+        2664         640
+Objective cost at epoch 1: 14.97 
+binary mask
+Elapsed time is 0.694747 seconds.
+Objective cost at epoch 2: 16.16 
+binary mask
+Elapsed time is 0.260298 seconds.
+Objective cost at epoch 3: 12.43 
+binary mask
+Elapsed time is 0.175927 seconds.
+Objective cost at epoch 4: 9.31 
+binary mask
+Elapsed time is 0.176561 seconds.
+Objective cost at epoch 5: 8.53 
+binary mask
+Elapsed time is 0.173576 seconds.
+Objective cost at epoch 6: 8.12 
+binary mask
+Elapsed time is 0.168446 seconds.
+Objective cost at epoch 7: 7.90 
+binary mask
+Elapsed time is 0.169022 seconds.
+Objective cost at epoch 8: 7.47 
+binary mask
+Elapsed time is 0.164676 seconds.
+Objective cost at epoch 9: 7.32 
+binary mask
+Elapsed time is 0.166591 seconds.
+Objective cost at epoch 10: 7.10 
+binary mask
+Elapsed time is 0.166731 seconds.
+Objective cost at epoch 11: 6.83 
+binary mask
+Elapsed time is 0.166426 seconds.
+Objective cost at epoch 12: 6.47 
+binary mask
+Elapsed time is 0.163937 seconds.
+Objective cost at epoch 13: 6.34 
+binary mask
+Elapsed time is 0.167138 seconds.
+Objective cost at epoch 14: 6.05 
+binary mask
+Elapsed time is 0.164411 seconds.
+Objective cost at epoch 15: 5.91 
+binary mask
+Elapsed time is 0.162809 seconds.
+Objective cost at epoch 16: 5.78 
+binary mask
+Elapsed time is 0.164048 seconds.
+Objective cost at epoch 17: 5.63 
+binary mask
+Elapsed time is 0.166410 seconds.
+Objective cost at epoch 18: 5.43 
+binary mask
+Elapsed time is 0.162690 seconds.
+Objective cost at epoch 19: 5.32 
+binary mask
+Elapsed time is 0.168482 seconds.
+Objective cost at epoch 20: 5.16 
+binary mask
+Elapsed time is 0.165558 seconds.
+Objective cost at epoch 21: 4.89 
+binary mask
+Elapsed time is 0.165868 seconds.
+Objective cost at epoch 22: 4.47 
+binary mask
+Elapsed time is 0.168329 seconds.
+Objective cost at epoch 23: 4.26 
+binary mask
+Elapsed time is 0.170126 seconds.
+Objective cost at epoch 24: 4.01 
+binary mask
+Elapsed time is 0.168262 seconds.
+Objective cost at epoch 25: 3.86 
+binary mask
+Elapsed time is 0.168068 seconds.
+Objective cost at epoch 26: 3.68 
+binary mask
+Elapsed time is 0.167528 seconds.
+Objective cost at epoch 27: 3.52 
+binary mask
+Elapsed time is 0.166490 seconds.
+Objective cost at epoch 28: 3.27 
+binary mask
+Elapsed time is 0.168134 seconds.
+Objective cost at epoch 29: 3.20 
+binary mask
+Elapsed time is 0.174505 seconds.
+Objective cost at epoch 30: 3.06 
+binary mask
+Elapsed time is 0.176019 seconds.
+Objective cost at epoch 31: 3.05 
+binary mask
+Elapsed time is 0.176930 seconds.
+Objective cost at epoch 32: 2.83 
+binary mask
+Elapsed time is 0.176802 seconds.
+Objective cost at epoch 33: 2.70 
+binary mask
+Elapsed time is 0.178940 seconds.
+Objective cost at epoch 34: 2.60 
+binary mask
+Elapsed time is 0.180441 seconds.
+Objective cost at epoch 35: 2.46 
+binary mask
+Elapsed time is 0.179900 seconds.
+Objective cost at epoch 36: 2.33 
+binary mask
+Elapsed time is 0.182273 seconds.
+Objective cost at epoch 37: 2.22 
+binary mask
+Elapsed time is 0.180287 seconds.
+Objective cost at epoch 38: 2.09 
+binary mask
+Elapsed time is 0.187605 seconds.
+Objective cost at epoch 39: 2.10 
+binary mask
+Elapsed time is 0.179821 seconds.
+Objective cost at epoch 40: 1.95 
+binary mask
+Elapsed time is 0.183485 seconds.
+Objective cost at epoch 41: 1.88 
+binary mask
+Elapsed time is 0.184028 seconds.
+Objective cost at epoch 42: 1.86 
+binary mask
+Elapsed time is 0.185919 seconds.
+Objective cost at epoch 43: 1.77 
+binary mask
+Elapsed time is 0.184773 seconds.
+Objective cost at epoch 44: 1.70 
+binary mask
+Elapsed time is 0.189733 seconds.
+Objective cost at epoch 45: 1.60 
+binary mask
+Elapsed time is 0.189038 seconds.
+Objective cost at epoch 46: 1.55 
+binary mask
+Elapsed time is 0.188988 seconds.
+Objective cost at epoch 47: 1.51 
+binary mask
+Elapsed time is 0.192533 seconds.
+Objective cost at epoch 48: 1.44 
+binary mask
+Elapsed time is 0.197208 seconds.
+Objective cost at epoch 49: 1.35 
+binary mask
+Elapsed time is 0.199228 seconds.
+Objective cost at epoch 50: 1.32 
+binary mask
+Elapsed time is 0.199834 seconds.
+Objective cost at epoch 51: 1.29 
+binary mask
+Elapsed time is 0.200054 seconds.
+Objective cost at epoch 52: 1.17 
+binary mask
+Elapsed time is 0.198740 seconds.
+Objective cost at epoch 53: 1.17 
+binary mask
+Elapsed time is 0.189411 seconds.
+Objective cost at epoch 54: 1.15 
+binary mask
+Elapsed time is 0.188264 seconds.
+Objective cost at epoch 55: 1.07 
+binary mask
+Elapsed time is 0.189763 seconds.
+Objective cost at epoch 56: 1.01 
+binary mask
+Elapsed time is 0.197026 seconds.
+Objective cost at epoch 57: 1.01 
+binary mask
+Elapsed time is 0.188425 seconds.
+Objective cost at epoch 58: 0.95 
+binary mask
+Elapsed time is 0.190951 seconds.
+Objective cost at epoch 59: 0.92 
+binary mask
+Elapsed time is 0.189602 seconds.
+Objective cost at epoch 60: 0.87 
+binary mask
+Elapsed time is 0.188822 seconds.
+Objective cost at epoch 61: 0.87 
+binary mask
+Elapsed time is 0.190783 seconds.
+Objective cost at epoch 62: 0.80 
+binary mask
+Elapsed time is 0.188100 seconds.
+Objective cost at epoch 63: 0.78 
+binary mask
+Elapsed time is 0.192040 seconds.
+Objective cost at epoch 64: 0.76 
+binary mask
+Elapsed time is 0.194440 seconds.
+Objective cost at epoch 65: 0.76 
+binary mask
+Elapsed time is 0.187631 seconds.
+Objective cost at epoch 66: 0.73 
+binary mask
+Elapsed time is 0.189956 seconds.
+Objective cost at epoch 67: 0.72 
+binary mask
+Elapsed time is 0.195404 seconds.
+Objective cost at epoch 68: 0.68 
+binary mask
+Elapsed time is 0.189480 seconds.
+Objective cost at epoch 69: 0.68 
+binary mask
+Elapsed time is 0.190411 seconds.
+Objective cost at epoch 70: 0.65 
+binary mask
+Elapsed time is 0.194204 seconds.
+Objective cost at epoch 71: 0.63 
+binary mask
+Elapsed time is 0.193763 seconds.
+Objective cost at epoch 72: 0.62 
+binary mask
+Elapsed time is 0.196350 seconds.
+Objective cost at epoch 73: 0.64 
+binary mask
+Elapsed time is 0.189091 seconds.
+Objective cost at epoch 74: 0.59 
+binary mask
+Elapsed time is 0.192505 seconds.
+Objective cost at epoch 75: 0.59 
+binary mask
+Elapsed time is 0.194685 seconds.
+Objective cost at epoch 76: 0.57 
+binary mask
+Elapsed time is 0.194337 seconds.
+Objective cost at epoch 77: 0.56 
+binary mask
+Elapsed time is 0.196742 seconds.
+Objective cost at epoch 78: 0.55 
+binary mask
+Elapsed time is 0.191754 seconds.
+Objective cost at epoch 79: 0.53 
+binary mask
+Elapsed time is 0.192297 seconds.
+Objective cost at epoch 80: 0.55 
+binary mask
+Elapsed time is 0.194376 seconds.
+Objective cost at epoch 81: 0.52 
+binary mask
+Elapsed time is 0.195694 seconds.
+Objective cost at epoch 82: 0.52 
+binary mask
+Elapsed time is 0.194892 seconds.
+Objective cost at epoch 83: 0.51 
+binary mask
+Elapsed time is 0.198384 seconds.
+Objective cost at epoch 84: 0.49 
+binary mask
+Elapsed time is 0.192791 seconds.
+Objective cost at epoch 85: 0.50 
+binary mask
+Elapsed time is 0.195273 seconds.
+Objective cost at epoch 86: 0.47 
+binary mask
+Elapsed time is 0.196235 seconds.
+Objective cost at epoch 87: 0.47 
+binary mask
+Elapsed time is 0.194152 seconds.
+Objective cost at epoch 88: 0.45 
+binary mask
+Elapsed time is 0.196972 seconds.
+Objective cost at epoch 89: 0.46 
+binary mask
+Elapsed time is 0.194684 seconds.
+Objective cost at epoch 90: 0.47 
+binary mask
+Elapsed time is 0.200815 seconds.
+Objective cost at epoch 91: 0.43 
+binary mask
+Elapsed time is 0.195861 seconds.
+Objective cost at epoch 92: 0.43 
+binary mask
+Elapsed time is 0.198651 seconds.
+Objective cost at epoch 93: 0.43 
+binary mask
+Elapsed time is 0.198080 seconds.
+Objective cost at epoch 94: 0.41 
+binary mask
+Elapsed time is 0.198009 seconds.
+Objective cost at epoch 95: 0.41 
+binary mask
+Elapsed time is 0.199128 seconds.
+Objective cost at epoch 96: 0.44 
+binary mask
+Elapsed time is 0.201035 seconds.
+Objective cost at epoch 97: 0.41 
+binary mask
+Elapsed time is 0.200209 seconds.
+Objective cost at epoch 98: 0.41 
+binary mask
+Elapsed time is 0.196816 seconds.
+Objective cost at epoch 99: 0.39 
+binary mask
+Elapsed time is 0.199118 seconds.
+Objective cost at epoch 100: 0.40 
+binary mask
+Elapsed time is 0.201963 seconds.
+IBM
+save_IBM_func
+num_test_sents =
+    10
+#STOI_single# factory Gf      index=1 unprocessed_stoi=0.6358 ideal_stoi=0.8169 est_stoi=0.6293 
+#STOI_single# factory Gf      index=2 unprocessed_stoi=0.6721 ideal_stoi=0.8642 est_stoi=0.6592 
+#STOI_single# factory Gf      index=3 unprocessed_stoi=0.7143 ideal_stoi=0.8782 est_stoi=0.7178 
+#STOI_single# factory Gf      index=4 unprocessed_stoi=0.6750 ideal_stoi=0.8729 est_stoi=0.7360 
+#STOI_single# factory Gf      index=5 unprocessed_stoi=0.5638 ideal_stoi=0.8195 est_stoi=0.5620 
+#STOI_single# factory Gf      index=6 unprocessed_stoi=0.7150 ideal_stoi=0.8954 est_stoi=0.7767 
+#STOI_single# factory Gf      index=7 unprocessed_stoi=0.6541 ideal_stoi=0.8529 est_stoi=0.6790 
+#STOI_single# factory Gf      index=8 unprocessed_stoi=0.6839 ideal_stoi=0.8512 est_stoi=0.7636 
+#STOI_single# factory Gf      index=9 unprocessed_stoi=0.6456 ideal_stoi=0.8558 est_stoi=0.6910 
+#STOI_single# factory Gf      index=10 unprocessed_stoi=0.6120 ideal_stoi=0.8365 est_stoi=0.6357 
+
+#STOI_average# factory Gf      unprocessed_stoi=0.6572 ideal_stoi=0.8544 est_stoi=0.6850 
+
+#@# factory Gf      ACC:0.8583  HIT:0.7042  FA:0.0990  HIT-FA:0.6052
+writing waves ......
+finish waves
+
+test_set: Best model (selected by validation set) at epoch 38 with perf 0.6052
+
+Training done. Elapsed time: 13.01 sec
+RUN
+train_list=config\list600_short.txt, test_list=config\list120_short.txt, noise_cut=0.500000
+
+dB:      0
+feat_type:Gf, noise_type:factory
+
+
+
+##########################################
+Start to generate training/test mixtures 
+
+
+
+noise cut ratio=0.500000
+using factory noise
+
+Mix Test Set, noise_name = factory ######
+
+name=S_61_01.wav before_snr=0.809624, using db=0, after_snr=0.000000, index_sentence=1
+name=S_61_02.wav before_snr=0.477765, using db=0, after_snr=0.000000, index_sentence=2
+name=S_61_03.wav before_snr=-0.261225, using db=0, after_snr=0.000000, index_sentence=3
+name=S_61_04.wav before_snr=0.579338, using db=0, after_snr=0.000000, index_sentence=4
+name=S_61_05.wav before_snr=0.538532, using db=0, after_snr=0.000000, index_sentence=5
+name=S_61_06.wav before_snr=0.818906, using db=0, after_snr=0.000000, index_sentence=6
+name=S_61_07.wav before_snr=2.892897, using db=0, after_snr=-0.000000, index_sentence=7
+name=S_61_08.wav before_snr=0.654991, using db=0, after_snr=0.000000, index_sentence=8
+name=S_61_09.wav before_snr=0.704655, using db=0, after_snr=-0.000000, index_sentence=9
+name=S_61_10.wav before_snr=0.063042, using db=0, after_snr=-0.000000, index_sentence=10
+The factory noise have been finished.
+noise cut ratio=0.500000
+using factory noise
+
+Mix Training Set, noise_name = factory repeat_time = 1 ######
+name=S_01_01.wav before_snr=1.084590, using db=0, after_snr=-0.000000, index_sentence=1 var_ind=1 store_ind=1
+name=S_01_02.wav before_snr=-0.194060, using db=0, after_snr=-0.000000, index_sentence=2 var_ind=1 store_ind=2
+name=S_01_03.wav before_snr=3.426746, using db=0, after_snr=-0.000000, index_sentence=3 var_ind=1 store_ind=3
+name=S_01_04.wav before_snr=4.986827, using db=0, after_snr=0.000000, index_sentence=4 var_ind=1 store_ind=4
+name=S_01_05.wav before_snr=0.683539, using db=0, after_snr=0.000000, index_sentence=5 var_ind=1 store_ind=5
+name=S_01_06.wav before_snr=4.518318, using db=0, after_snr=-0.000000, index_sentence=6 var_ind=1 store_ind=6
+name=S_01_07.wav before_snr=0.344741, using db=0, after_snr=-0.000000, index_sentence=7 var_ind=1 store_ind=7
+name=S_01_08.wav before_snr=0.599813, using db=0, after_snr=-0.000000, index_sentence=8 var_ind=1 store_ind=8
+name=S_01_09.wav before_snr=4.481199, using db=0, after_snr=0.000000, index_sentence=9 var_ind=1 store_ind=9
+name=S_01_10.wav before_snr=3.585813, using db=0, after_snr=0.000000, index_sentence=10 var_ind=1 store_ind=10
+The factory noise have been finished.
+
+
+
+##########################################
+Start to generate features and ideal masks 
+
+
+
+start noise:factory  feat:Gf
+	Gf	factory
+SPEECH_DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix'
+test data =D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\test_factory_mix_aft2.mat
+part:-1 feat:1 - 10, feat_set_size=10 store=1 NUMBER_CHANNEL=64 is_ratio_mask=0.
+####### extracting features ######
+DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\test_factory_mix_aft2.mat'
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+creating double frame index DFI...
+stop_pointer=2581
+data_frames=2581 num. of test sentence=10
+finish saving Gf
+factory have been finished.
+finish noise:factory  feat:Gf
+5.138179 seconds spent on the noise:factory feat:Gf
+start noise:factory  feat:Gf
+	Gf	factory
+SPEECH_DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix'
+training data=D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\train_factory_mix_bef2.mat
+part:1 feat:1 - 10, feat_set_size=10 store=1 NUMBER_CHANNEL=64 is_ratio_mask=0.
+####### extracting features ######
+DATA_PATH =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\mix\train_factory_mix_bef2.mat'
+index = 1
+index = 2
+index = 3
+index = 4
+index = 5
+index = 6
+index = 7
+index = 8
+index = 9
+index = 10
+finish saving Gf
+factory have been finished.
+finish noise:factory  feat:Gf
+5.796620 seconds spent on the noise:factory feat:Gf
+
+
+
+##########################################
+Start mean variance normalization and dnn training/test 
+
+
+
+MVNing Feat=Gf Noise=factory
+root_path =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\'
+train_path =
+    'D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\feat\train_factory_Gf.mat'
+loading D:\programming\aiintro\homework2\DNN_IBM\DATA\factory\tmpdir\db0\feat\train_factory_Gf.mat
+Total=2959, cv=295  train=2664
+cv=295 x 128, test=2581 x 128
+MVN_DATA_PATH =
+    'MVN_STORE\allmvntrain_factory_Gf_0.mat'
+done with GPU detection.
+Feat=Gf Noise=factory is_ratio_mask=0
+MVN_DATA_PATH =
+    'MVN_STORE\allmvntrain_factory_Gf_0.mat'
+Elapsed time is 0.046923 seconds.
+opts = 
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+              cv_interval: 1
+               isPretrain: 0
+            rbm_max_epoch: 25
+           rbm_batch_size: 1024
+    rbm_learn_rate_binary: 0.0100
+      rbm_learn_rate_real: 0.0040
+                  learner: 'ada_sgd'
+            sgd_max_epoch: 20
+           sgd_batch_size: 1024
+            ada_sgd_scale: 0.0015
+           sgd_learn_rate: [1×20 double]
+         initial_momentum: 0.5000
+           final_momentum: 0.9000
+    change_momentum_point: 5
+            cost_function: 'mse'
+               hid_struct: [1024 1024 1024 1024]
+         unit_type_output: 'sigm'
+         unit_type_hidden: 'relu'
+                isDropout: 0
+           isDropoutInput: 0
+               drop_ratio: 0.2000
+          train_neighbour: 2
+                    isGPU: 1
+              eval_on_gpu: 0
+              save_on_fly: 0
+                       db: 0
+          save_model_path: 'YOUR_FOLDER_OF_MODELS'
+                 note_str: 'YOUR_NOTES'
+               net_struct: [640 1024 1024 1024 1024 64]
+1 is_wiener_mask=0
+use random weight initialization.
+
+Num of Training Samples:2664
+         640        1024        1024        1024        1024          64
+        2664         640
+Objective cost at epoch 1: 13.85 
+binary mask
+Elapsed time is 0.588247 seconds.
+Objective cost at epoch 2: 10.67 
+binary mask
+Elapsed time is 0.071888 seconds.
+Objective cost at epoch 3: 8.22 
+binary mask
+Elapsed time is 0.070790 seconds.
+Objective cost at epoch 4: 7.23 
+binary mask
+Elapsed time is 0.071275 seconds.
+Objective cost at epoch 5: 6.38 
+binary mask
+Elapsed time is 0.071705 seconds.
+Objective cost at epoch 6: 5.80 
+binary mask
+Elapsed time is 0.073856 seconds.
+Objective cost at epoch 7: 5.45 
+binary mask
+Elapsed time is 0.072388 seconds.
+Objective cost at epoch 8: 5.23 
+binary mask
+Elapsed time is 0.072189 seconds.
+Objective cost at epoch 9: 5.79 
+binary mask
+Elapsed time is 0.071795 seconds.
+Objective cost at epoch 10: 4.97 
+binary mask
+Elapsed time is 0.071928 seconds.
+Objective cost at epoch 11: 4.56 
+binary mask
+Elapsed time is 0.070740 seconds.
+Objective cost at epoch 12: 4.20 
+binary mask
+Elapsed time is 0.071353 seconds.
+Objective cost at epoch 13: 3.79 
+binary mask
+Elapsed time is 0.069615 seconds.
+Objective cost at epoch 14: 3.54 
+binary mask
+Elapsed time is 0.075591 seconds.
+Objective cost at epoch 15: 3.28 
+binary mask
+Elapsed time is 0.074385 seconds.
+Objective cost at epoch 16: 3.09 
+binary mask
+Elapsed time is 0.078779 seconds.
+Objective cost at epoch 17: 2.91 
+binary mask
+Elapsed time is 0.077481 seconds.
+Objective cost at epoch 18: 2.75 
+binary mask
+Elapsed time is 0.074129 seconds.
+Objective cost at epoch 19: 2.58 
+binary mask
+Elapsed time is 0.074863 seconds.
+Objective cost at epoch 20: 2.39 
+binary mask
+Elapsed time is 0.075894 seconds.
+IBM
+save_IBM_func
+num_test_sents =
+    10
+#STOI_single# factory Gf      index=1 unprocessed_stoi=0.5832 ideal_stoi=0.8066 est_stoi=0.6149 
+#STOI_single# factory Gf      index=2 unprocessed_stoi=0.6840 ideal_stoi=0.8754 est_stoi=0.6783 
+#STOI_single# factory Gf      index=3 unprocessed_stoi=0.6769 ideal_stoi=0.8758 est_stoi=0.7250 
+#STOI_single# factory Gf      index=4 unprocessed_stoi=0.7039 ideal_stoi=0.8915 est_stoi=0.7229 
+#STOI_single# factory Gf      index=5 unprocessed_stoi=0.6077 ideal_stoi=0.8339 est_stoi=0.6657 
+#STOI_single# factory Gf      index=6 unprocessed_stoi=0.7219 ideal_stoi=0.8814 est_stoi=0.7252 
+#STOI_single# factory Gf      index=7 unprocessed_stoi=0.6519 ideal_stoi=0.8345 est_stoi=0.6507 
+#STOI_single# factory Gf      index=8 unprocessed_stoi=0.6072 ideal_stoi=0.8574 est_stoi=0.6671 
+#STOI_single# factory Gf      index=9 unprocessed_stoi=0.6292 ideal_stoi=0.8585 est_stoi=0.6648 
+#STOI_single# factory Gf      index=10 unprocessed_stoi=0.6408 ideal_stoi=0.8335 est_stoi=0.6681 
+
+#STOI_average# factory Gf      unprocessed_stoi=0.6507 ideal_stoi=0.8548 est_stoi=0.6783 
+
+#@# factory Gf      ACC:0.8680  HIT:0.6994  FA:0.0860  HIT-FA:0.6134
+writing waves ......
+finish waves
+
+test_set: Best model (selected by validation set) at epoch 17 with perf 0.6134
+
+Training done. Elapsed time: 12.89 sec

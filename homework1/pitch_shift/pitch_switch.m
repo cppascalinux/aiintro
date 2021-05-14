@@ -184,7 +184,7 @@ title(handles.axes3,'变调声音的波形');
 xlabel(handles.axes3,'时间');
 ylabel(handles.axes3,'幅度');
 sound(s_syn_t,16000);  
-
+audiowrite('out.wav',s_syn_t,16000);
 
 % --- Executes on button press in PlayWav.
 function PlayWav_Callback(hObject, eventdata, handles)
